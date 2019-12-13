@@ -1,5 +1,5 @@
-import * as Yup from 'yup';
-import User from '../models/User';
+import * as Yup from 'yup'; // Lib para validar dados enviados
+import User from '../models/User'; // Model do usuario
 
 class UserController {
   async store(req, res) {
