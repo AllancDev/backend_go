@@ -21,21 +21,30 @@ import authMiddleware from './app/middlewares/auth';
 const routes = new Router();
 const upload = multer(multerConfig);
 
+/** constrol users and sessions */
 routes.post('/users', UserController.store);
 routes.post('/sessions', SessionController.store);
 
+/** config middleware and user update */
 routes.use(authMiddleware);
 routes.put('/users', UserController.update);
 
+/** control provider */
 routes.get('/providers', ProviderController.index);
 
+/** created appointments as read appointments */
 routes.get('/appointments', AppointmentController.index);
 routes.post('/appointments', AppointmentController.store);
 
+/** schedule select  */
 routes.get('/schedule', ScheduleController.index);
 
+/** route select notifications and update notifications  */
 routes.get('/notifications', NotificationController.index);
+routes.put('/notifications/:id', NotificationController.update);
 
+/** created route files update */
 routes.post('/files', upload.single('file'), FileController.store);
 
+/** export module routes */
 export default routes;
