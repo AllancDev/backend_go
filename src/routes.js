@@ -46,7 +46,7 @@ routes.get('/schedule', ScheduleController.index);
 routes.get('/notifications', NotificationController.index);
 routes.put('/notifications/:id', NotificationController.update);
 
-/** created route files update */
+/** created routes files update */
 routes.post('/files', upload.single('file'), FileController.store);
 
 /** export module routes */
